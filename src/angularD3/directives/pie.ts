@@ -104,7 +104,6 @@ export class D3Pie extends D3PieBase implements D3Element {
     slices.exit().remove
 
     if (this.label) {
-      var prevbb = null
       var label = this._center.selectAll("text").data(this.pie(data))
       label.enter().append("text")
         .attr("class", (d, i) => { return `pie-label pie-label-${i}` })

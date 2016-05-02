@@ -5,3 +5,4 @@ app/components
 .sublime-*
 typings
 npm-debug.log
+dist

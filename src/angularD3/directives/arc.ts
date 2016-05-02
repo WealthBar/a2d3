@@ -35,7 +35,6 @@ export class D3Arc extends D3PieBase {
   redraw(data) {
     super.redraw(data)
     var radius = this.radius
-    var labelArc = this.createLabelArc(radius)
     var arc = this.createArc(radius)
     var arcTween = this.createArcTween(arc, 0)
 

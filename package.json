@@ -1,6 +1,6 @@
 {
-  "name": "angularD3",
-  "version": "0.0.35",
+  "name": "a2d3",
+  "version": "0.1.0-beta.1",
   "description": "AngularJS chart directives and other integrations for D3.js",
   "authors": [
     "Chris Nicola <chnicola@gmail.com>"
@@ -14,14 +14,17 @@
     "url": "https://github.com/wealthbar/angular-d3/issues"
   },
   "license": "MIT",
-  "main": "dist/angularD3.js",
+  "main": "dist/index.js",
+  "typings": "dist/index",
+  "files": [
+    "dist/"
+  ],
   "scripts": {
     "clean": "rimraf node_modules doc typings && npm cache clean",
     "clean-install": "npm run clean && npm install",
     "clean-start": "npm run clean && npm start",
     "watch": "webpack --watch --progress --profile --colors --display-error-details --display-cached",
-    "build": "webpack --progress --profile --colors --display-error-details --display-cached",
-    "build:prod": "webpack --progress --profile --colors --display-error-details --display-cached --optimize-occurence-order --optimize-minimize --optimize-dedupe",
+    "dist": "webpack --config webpack.build.js -p",
     "server": "webpack-dev-server --inline --progress --profile --colors --display-error-details --display-cached --port 4000",
     "webdriver-update": "webdriver-manager update",
     "webdriver-start": "webdriver-manager start",
@@ -38,7 +41,8 @@
     "es6-shim": "^0.35.0",
     "rxjs": "5.0.0-beta.6",
     "reflect-metadata": "0.1.2",
-    "zone.js": "^0.6.12"
+    "zone.js": "^0.6.12",
+    "lodash.clonedeep": "^4.3.2"
   },
   "devDependencies": {
     "bootstrap-loader": "^1.0.1",
@@ -57,7 +61,6 @@
     "karma-phantomjs-launcher": "^0.2.1",
     "karma-sourcemap-loader": "^0.3.6",
     "karma-webpack": "1.7.0",
-    "lodash.clonedeep": "^4.3.2",
     "node-sass": "^3.4.2",
     "phantomjs": "^1.9.18",
     "phantomjs-polyfill": "0.0.1",
@@ -69,7 +72,7 @@
     "sass-loader": "^3.1.2",
     "script-loader": "^0.6.1",
     "style-loader": "^0.13.0",
-    "ts-loader": "^0.8.2",
+    "ts-loader": "0.8.0",
     "tslint": "^3.7.0-dev.2",
     "tslint-loader": "^2.1.4",
     "typedoc": "^0.3.12",

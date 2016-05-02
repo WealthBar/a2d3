@@ -8,12 +8,12 @@
     "experimentalDecorators": true,
     "removeComments": false,
     "noImplicitAny": false,
+    "declaration": true,
+    "outDir": "./"
   },
-  "exclude": [
-    "dist",
-    "node_modules",
-    "typings/browser/",
-    "typings/browser.d.ts"
+  "files": [
+    "src/angularD3/index.ts",
+    "typings/main.d.ts"
   ],
   "compileOnSave": false
 }
