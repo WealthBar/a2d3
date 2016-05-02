@@ -5,13 +5,13 @@
   "authors": [
     "Chris Nicola <chnicola@gmail.com>"
   ],
-  "homepage": "http://wealthbar.github.io/angular-d3",
+  "homepage": "http://wealthbar.github.io/a2d3",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wealthbar/angular-d3.git"
+    "url": "https://github.com/wealthbar/a2d3.git"
   },
   "bugs": {
-    "url": "https://github.com/wealthbar/angular-d3/issues"
+    "url": "https://github.com/wealthbar/a2d3/issues"
   },
   "license": "MIT",
   "main": "dist/index.js",
