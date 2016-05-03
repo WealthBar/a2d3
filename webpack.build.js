@@ -11,6 +11,8 @@ module.exports = {
   output: {
     path: __dirname + '/dist',
     filename: 'index.js',
+    library: 'a2d3',
+    libraryTarget: 'umd',
     sourceMapFilename: 'index.map'
   },
 

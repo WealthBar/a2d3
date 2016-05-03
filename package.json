@@ -17,14 +17,15 @@
   "main": "dist/index.js",
   "typings": "dist/index",
   "files": [
-    "dist/"
+    "dist/",
+    "src/angularD3/"
   ],
   "scripts": {
     "clean": "rimraf node_modules doc typings && npm cache clean",
     "clean-install": "npm run clean && npm install",
     "clean-start": "npm run clean && npm start",
     "watch": "webpack --watch --progress --profile --colors --display-error-details --display-cached",
-    "dist": "webpack --config webpack.build.js -p",
+    "dist": "webpack --config webpack.build.js",
     "server": "webpack-dev-server --inline --progress --profile --colors --display-error-details --display-cached --port 4000",
     "webdriver-update": "webdriver-manager update",
     "webdriver-start": "webdriver-manager start",
