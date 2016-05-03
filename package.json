@@ -1,6 +1,6 @@
 {
   "name": "a2d3",
-  "version": "0.1.0-beta.1",
+  "version": "0.1.0",
   "description": "AngularJS chart directives and other integrations for D3.js",
   "authors": [
     "Chris Nicola <chnicola@gmail.com>"
