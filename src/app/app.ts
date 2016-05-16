@@ -1,8 +1,8 @@
 /*
  * Angular 2 decorators and services
  */
-import {Component} from 'angular2/core';
-import {CORE_DIRECTIVES} from 'angular2/common';
+import {Component} from '@angular/core';
+import {CORE_DIRECTIVES} from '@angular/common';
 import {D3_DIRECTIVES} from '../angularD3';
 
 /*

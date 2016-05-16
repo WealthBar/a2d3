@@ -1,4 +1,4 @@
-import {Optional, Directive, ElementRef} from 'angular2/core'
+import {Optional, Directive, ElementRef} from '@angular/core'
 import {D3Chart, D3Element, D3Margin} from './chart'
 import {D3PieBase} from './pie'
 import d3 = require('d3');

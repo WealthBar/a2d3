@@ -17,9 +17,9 @@ module.exports = {
   },
 
   externals: {
-    angular2: true,
-    "angular2/core": true,
-    d3: true,
+    "@angular": true,
+    "@angular/core": true,
+    "d3": true,
     'lodash.clonedeep': true,
   },
 

@@ -3,9 +3,8 @@ import {
   inject,
   injectAsync,
   beforeEachProviders,
-  TestComponentBuilder
-} from 'angular2/testing';
-import {APP_ID} from 'angular2/core';
+} from '@angular/core/testing';
+import {APP_ID} from '@angular/core';
 
 
 describe('default test injector', () => {

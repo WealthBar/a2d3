@@ -1,4 +1,4 @@
-import {Host, Directive, ElementRef, Optional} from 'angular2/core'
+import {Host, Directive, ElementRef, Optional} from '@angular/core'
 import {D3Chart, D3Margin, D3Element, D3Scale} from './chart'
 import d3 = require('d3')
 var clone = require('lodash.clonedeep')
