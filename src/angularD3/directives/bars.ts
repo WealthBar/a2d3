@@ -26,7 +26,8 @@ export class D3Bars extends D3Element {
     this._barsElement = this.element.attr("class", "bars")
   }
 
-  redraw(data = []) {
+  redraw() {
+    var data = this.data
     var bars = this._barsElement.selectAll("rect.bar").data(data)
     bars.exit().transition().duration(500)
       .attr("y", () => { return this.height })

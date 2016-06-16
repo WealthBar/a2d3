@@ -2,7 +2,7 @@ import {Input, Directive, Optional, ElementRef} from '@angular/core';
 import d3 = require('d3');
 
 export interface ID3Element {
-  redraw(data: {}[]): void;
+  redraw(): void;
 }
 
 export class D3Element implements ID3Element {
@@ -45,7 +45,7 @@ export class D3Element implements ID3Element {
 
   getScale(name) { return this.chart.getScale(name) }
 
-  redraw(data: {}[]) { return }
+  redraw() { return }
 }
 
 export interface D3Scale {
@@ -102,7 +102,7 @@ export class D3Chart {
 
   redraw() {
     this._timeout = setTimeout(() => {
-      this.elements.forEach((e) => { e.redraw(this.data) })
+      this.elements.forEach((e) => { e.redraw() })
       this._timeout = null
     }, this.debounce)
   }

@@ -27,7 +27,8 @@ export class D3Line extends D3Element {
     this._linePath = this.element.append("path")
   }
 
-  redraw(data = []) {
+  redraw() {
+    var data = this.data
     this._line = this._line || d3.svg.line().x((d) => this.x(d)).y((d) => this.y(d))
 
     this._linePath.attr("class", `line line-${this.name || this.yDataName}`)
