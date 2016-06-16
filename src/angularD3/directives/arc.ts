@@ -32,7 +32,7 @@ export class D3Arc extends D3PieBase {
     this._label = this._center.append("text").attr("class", "arc-label")
   }
 
-  redraw(data) {
+  redraw(data = []) {
     super.redraw(data)
     var radius = this.radius
     var arc = this.createArc(radius)

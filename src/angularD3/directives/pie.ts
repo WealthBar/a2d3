@@ -38,7 +38,7 @@ export class D3PieBase extends D3Element {
     }
   }
 
-  redraw(data) {
+  redraw(data = []) {
     if (this.radiusAttr === 'height') {
       this.chart.width = this.height
     } else {
@@ -82,7 +82,7 @@ export class D3Pie extends D3PieBase implements D3Element {
     if (d3.scale[value]) this._colorScale = d3.scale[value]()
   }
 
-  redraw(data) {
+  redraw(data = []) {
     super.redraw(data)
     var radius = this.radius
     var arc = this.createArc(radius)

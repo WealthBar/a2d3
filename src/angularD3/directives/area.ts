@@ -46,10 +46,7 @@ export class D3Area extends D3Element {
     }
   }
 
-  redraw(data = null) {
-    data = data || this.data
-    if (!data || data.length === 0) return;
-
+  redraw(data = []) {
     var stack = d3.layout.stack()
     if (this.offset) stack.offset(this.offset)
     stack.values((d: any) => { return d.values })

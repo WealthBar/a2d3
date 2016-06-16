@@ -43,13 +43,10 @@ export class D3Axis extends D3Element implements D3Scale {
     chart.addScale(this)
   }
 
-  redraw(data) {
+  redraw(data = []) {
     this.updateAxis()
     this.updateLabel()
     this.updateGrid()
-  }
-
-  update(data) {
     if (!data || data.length < 0) return
     var scale = this._scale
     scale.range(this.range)

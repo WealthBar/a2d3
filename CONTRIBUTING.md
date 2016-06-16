@@ -1,12 +1,5 @@
 # Guidelines for Contributing
 
-## House Rules
-
-1. Respect the indentation (2 spaces) and coding style you see, don't mix
-   styles
-2. Respect the use of Coffeescript (pull-requests or issues asking to migrate
-   to Javascript will be roundhouse kicked)
-
 ## Getting Started
 
 We use Grunt to build and test Angular-D3 and Bower to manage dependencies. You
@@ -14,20 +7,14 @@ can get started by first cloning the repository (fork it if you want to submit
 pull-requests). The follow these steps:
 
 ```sh
-# Install Bower and Grunt if you don't have them already
-npm install -g grunt-cli
-npm install -g bower
+# Setup
+npm install
 
-# Install Bower dependencies
-bower install
+# Running the demo
+npm start
 
-# List Grunt Tasks
-
-grunt --help
-
-# Start Development Server
-
-grunt server
+# Building the NPM package (output to /dist)
+npm run dist
 ```
 
 ## Submitting A Pull Request

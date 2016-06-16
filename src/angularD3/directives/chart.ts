@@ -51,7 +51,6 @@ export class D3Element implements ID3Element {
 export interface D3Scale {
   name: string
   scale
-  update(data: {}[]): void
 }
 
 /*
@@ -94,7 +93,7 @@ export class D3Chart {
 
   addElement(element: ID3Element) { this.elements.push(element) }
 
-  get data() { return this._data }
+  get data() { return this._data || [] }
   set data(value: any) {
     this._data = value
     if (this._timeout || this.width === 0 || this.height === 0) return;
@@ -103,8 +102,7 @@ export class D3Chart {
 
   redraw() {
     this._timeout = setTimeout(() => {
-      this.scales.forEach((s) => { s.update(this._data) })
-      this.elements.forEach((e) => { e.redraw(this._data) })
+      this.elements.forEach((e) => { e.redraw(this.data) })
       this._timeout = null
     }, this.debounce)
   }
