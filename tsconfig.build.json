@@ -6,14 +6,14 @@
     "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "removeComments": false,
+    "removeComments": true,
     "noImplicitAny": false,
     "declaration": true,
     "outDir": "./"
   },
   "files": [
     "src/angularD3/index.ts",
-    "typings/main.d.ts"
+    "typings/index.d.ts"
   ],
   "compileOnSave": false
 }

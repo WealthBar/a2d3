@@ -9,11 +9,11 @@
     "removeComments": false,
     "noImplicitAny": false
   },
-  "exclude": [
-    "dist",
-    "node_modules",
-    "typings/browser/",
-    "typings/browser.d.ts"
+  "files": [
+    "src/bootstrap.ts",
+    "src/vendor.ts",
+    "src/angularD3/index.ts",
+    "typings/index.d.ts"
   ],
   "compileOnSave": false
 }
