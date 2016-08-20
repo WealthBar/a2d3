@@ -1,3 +1,5 @@
+import { NgModule } from '@angular/core';
+
 export * from './directives/arc';
 export * from './directives/area';
 export * from './directives/axis';
@@ -27,3 +29,9 @@ export const D3_DIRECTIVES: Function[] = [
     D3Margin,
     D3Pie,
 ];
+
+@NgModule({
+  declarations: D3_DIRECTIVES,
+  exports: [D3_DIRECTIVES],
+})
+export class D3Module { }

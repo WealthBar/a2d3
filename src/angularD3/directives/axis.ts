@@ -45,6 +45,7 @@ export class D3Axis extends D3Element implements D3Scale {
 
   redraw() {
     var data = this.data
+    if (!data || data.length === 0) return;
     this.updateAxis()
     this.updateLabel()
     this.updateGrid()

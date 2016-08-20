@@ -2,8 +2,6 @@
  * Angular 2 decorators and services
  */
 import {Component} from '@angular/core';
-import {CORE_DIRECTIVES} from '@angular/common';
-import {D3_DIRECTIVES} from '../angularD3';
 
 /*
  * App Component
@@ -11,12 +9,9 @@ import {D3_DIRECTIVES} from '../angularD3';
  */
 @Component({
   selector: 'app', // <app></app>
-  providers: [],
-  directives: [D3_DIRECTIVES, CORE_DIRECTIVES],
-  pipes: [],
   template: require('./app.html'),
 })
-export class App {
+export class AppComponent {
   dataUrl: string = require('./data/data.csv')
   pieDataUrl: string = require('./data/pieData.csv')
   line: {}[]
@@ -66,12 +61,6 @@ export class App {
         this.columns = ['savings', 'optimal', 'total']
       }
     } , 1000 * 5)
-  }
-
-  lineLoaded(event) { this.line = event.rows; }
-
-  pieLoaded(event) {
-    this.pie = event.rows
   }
 
   parseValues(row) {

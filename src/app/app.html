@@ -1,6 +1,6 @@
 <div>
-  <d3-data [src]="dataUrl" (data)="lineLoaded($event)" [accessor]="parseValues" [callback]="log"></d3-data>
-  <d3-data [src]="pieDataUrl" (data)="pieLoaded($event)" [accessor]="parseValues" [callback]="log"></d3-data>
+  <d3-data [src]="dataUrl" (data)="line = $event.rows" [accessor]="parseValues" [callback]="log"></d3-data>
+  <d3-data [src]="pieDataUrl" (data)="pie = $event.rows" [accessor]="parseValues" [callback]="log"></d3-data>
 
   <section id="graphs" class="well">
     <h1>Basic Graphs</h1>
