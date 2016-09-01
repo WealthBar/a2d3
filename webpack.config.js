@@ -74,8 +74,6 @@ module.exports = {
       $: "jquery",
       jQuery: "jquery",
       "window.jQuery": "jquery",
-      "System": "system",
-      "window.System": "system",
     }),
    // include uglify in production
   ],

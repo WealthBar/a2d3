@@ -4,5 +4,5 @@ require('bootstrap-loader');
 // Polyfills
 import 'reflect-metadata'
 require('es6-shim')
-require( 'zone.js')
+require('zone.js')
 import 'rxjs';

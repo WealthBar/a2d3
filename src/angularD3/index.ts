@@ -18,7 +18,7 @@ import {D3Data} from './directives/data';
 import {D3Line} from './directives/line';
 import {D3Pie} from './directives/pie';
 
-export const D3_DIRECTIVES: Function[] = [
+export const D3_DIRECTIVES = [
     D3Arc,
     D3Area,
     D3Axis,
@@ -32,6 +32,6 @@ export const D3_DIRECTIVES: Function[] = [
 
 @NgModule({
   declarations: D3_DIRECTIVES,
-  exports: [D3_DIRECTIVES],
+  exports: D3_DIRECTIVES,
 })
 export class D3Module { }
