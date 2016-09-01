@@ -70,11 +70,11 @@ export class D3Area extends D3Element {
   }
 
   private getNullArea() {
-    var area = d3.svg.area<any>()
+    var area = d3.svg.area()
       .x((d, i) => { return this.x(d.x) })
       .y0(() => { return this.height })
       .y1(() => { return this.height })
-    var areaStacked = d3.svg.area<any>()
+    var areaStacked = d3.svg.area()
       .x((d) => { return this.x(d.x) })
       .y0((d) => { return this.y(d.y0) })
       .y1((d) => { return this.y(d.y0) })
@@ -89,20 +89,20 @@ export class D3Area extends D3Element {
 
   private getArea() {
     if (this.vertical) {
-      var area = d3.svg.area<any>()
+      var area = d3.svg.area()
         .y((d) => { return this.x(d.x) })
         .x0(0)
         .x1((d) => { return this.y(d.y) })
-      var areaStacked = d3.svg.area<any>()
+      var areaStacked = d3.svg.area()
         .y((d) => { return this.x(d.x) })
         .x0((d) => { return this.y(d.y0) })
         .x1((d) => { return this.y(d.y + d.y0) })
     } else {
-      var area = d3.svg.area<any>()
+      var area = d3.svg.area()
         .x((d) => { return this.x(d.x) })
         .y0(() => { return this.height })
         .y1((d) => { return this.y(d.y) })
-      var areaStacked = d3.svg.area<any>()
+      var areaStacked = d3.svg.area()
         .x((d) => { return this.x(d.x) })
         .y0((d) => { return this.y(d.y0) })
         .y1((d) => { return this.y(d.y + d.y0) })

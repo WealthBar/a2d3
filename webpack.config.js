@@ -31,7 +31,6 @@ module.exports = {
   },
 
   module: {
-    preLoaders: [ { test: /\.ts$/, loader: 'tslint-loader' } ],
     loaders: [
       // Support for .ts files.
       {
@@ -64,13 +63,6 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({ template: 'src/index.html' }),
   ],
-
-  // Other module loader config
-  tslint: {
-    emitErrors: false,
-    failOnHint: false
-  },
-  // our Webpack Development Server config
   devServer: {
     historyApiFallback: true,
     contentBase: 'docs',

@@ -16,7 +16,7 @@ export class D3PieBase extends D3Element {
   }
 
   createArc(radius: number) {
-    return d3.svg.arc<number>()
+    return d3.svg.arc()
       .outerRadius(radius)
       .innerRadius(radius * this.innerRadius);
   }

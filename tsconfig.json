@@ -3,7 +3,7 @@
     "target": "ES5",
     "module": "commonjs",
     "sourceMap": true,
-    "types": ["requirejs", "es6-shim", "jasmine", "d3-time", "d3-scale", "d3-array", "d3"],
+    "types": ["requirejs", "es6-shim", "jasmine", "d3-time", "d3-scale", "d3-array"],
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "removeComments": false,
