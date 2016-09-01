@@ -1,12 +1,8 @@
-// @AngularClass
-
-/*
- * Helper: root(), and rootDir() are defined at the bottom
- */
 var path = require('path');
 var webpack = require('webpack');
 // Webpack Plugins
 var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 /*
  * Config
@@ -23,11 +19,11 @@ module.exports = {
 
   // Config for our build files
   output: {
-    path: root('__build__'),
+    path: 'docs',
     filename: '[name].js',
     sourceMapFilename: '[name].map',
     chunkFilename: '[id].chunk.js',
-    publicPath: '/__build__/'
+    publicPath: './'
   },
 
   resolve: {
@@ -42,15 +38,7 @@ module.exports = {
       {
         test: /\.ts$/,
         loader: 'ts-loader',
-        query: {
-          'ignoreDiagnostics': [
-            2403, // 2403 -> Subsequent variable declarations
-            2300, // 2300 -> Duplicate identifier
-            2374, // 2374 -> Duplicate number index signature
-            2375  // 2375 -> Duplicate string index signature
-          ]
-        },
-        exclude: [ /\.(spec|e2e)\.ts$/, /node_modules/ ]
+        exclude: [ /\.(spec|e2e)\.ts$/ ]
       },
 
       // Support for *.json files.
@@ -75,7 +63,7 @@ module.exports = {
       jQuery: "jquery",
       "window.jQuery": "jquery",
     }),
-   // include uglify in production
+    new HtmlWebpackPlugin({ template: 'src/index.html' }),
   ],
 
   // Other module loader config
@@ -86,8 +74,7 @@ module.exports = {
   // our Webpack Development Server config
   devServer: {
     historyApiFallback: true,
-    contentBase: 'src/public',
-    publicPath: '/__build__/'
+    contentBase: 'docs',
   }
 };
 
