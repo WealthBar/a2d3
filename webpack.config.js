@@ -23,7 +23,6 @@ module.exports = {
     filename: '[name].js',
     sourceMapFilename: '[name].map',
     chunkFilename: '[id].chunk.js',
-    publicPath: './'
   },
 
   resolve: {
