@@ -21,7 +21,7 @@
     "src/angularD3/"
   ],
   "scripts": {
-    "clean": "rimraf node_modules doc typings && npm cache clean",
+    "clean": "rimraf node_modules doc && npm cache clean",
     "clean-install": "npm run clean && npm install",
     "clean-start": "npm run clean && npm start",
     "watch": "webpack --watch --progress --profile --colors --display-error-details --display-cached",
@@ -31,7 +31,6 @@
     "test": "karma start",
     "ci": "npm run e2e && npm run test",
     "start": "webpack-dev-server --inline --progress --profile --colors --display-error-details --display-cached --port 4000",
-    "postinstall": "typings install",
     "prepublish": "npm run dist"
   },
   "dependencies": {
@@ -49,6 +48,12 @@
     "@angular/platform-browser-dynamic": "^2.1.1",
     "@angular/router": "^3.0.0-rc.2",
     "@angular/upgrade": "^2.1.1",
+    "@types/d3": "0.0.33",
+    "@types/d3-array": "0.0.3",
+    "@types/d3-scale": "0.0.3",
+    "@types/es6-shim": "0.0.31",
+    "@types/jasmine": "^2.2.33",
+    "@types/requirejs": "^2.1.26",
     "bootstrap-loader": "^1.0.1",
     "bootstrap-sass": "^3.3.6",
     "css-loader": "^0.23.1",
@@ -86,7 +91,6 @@
     "tslint-loader": "^2.1.4",
     "typedoc": "^0.4.4",
     "typescript": "^2.0.2",
-    "typings": "^1.3.0",
     "url-loader": "^0.5.6",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.12.1",
