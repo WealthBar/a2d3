@@ -14,8 +14,10 @@ import {Component} from '@angular/core';
 export class AppComponent {
   dataUrl: string = require('./data/data.csv')
   pieDataUrl: string = require('./data/pieData.csv')
+  gearDataUrl: string = require('./data/gearData.csv')
   line: {}[]
   pie: {}[]
+  gear: {}[]
   margin = { top: 40, right: 60, bottom: 40, left: 60 }
   columns = ['savings', 'total', 'optimal']
   tickValues = [200, 400, 600, 800]
@@ -69,7 +71,9 @@ export class AppComponent {
       if (key === 'date') {
         row[key] = new Date(value)
       } else if (!isNaN(parseFloat(value)) && isFinite(value)) {
-        row[key] = +value.trim()
+        row[key] = +value
+      } else {
+        row[key] = value;
       }
     }
     return row
@@ -81,5 +85,7 @@ export class AppComponent {
     })
   }
 
-  log(data) { console.log(data) }
+  log(data) {
+
+  } // console.log("log", data) }
 }
