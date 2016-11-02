@@ -19,7 +19,12 @@ import d3 = require('d3');
     'color',
     'triangleColor: triangle-color',
     'colorScale: color-scale',
-    'format'
+    'format',
+    'radiusScaling: radius-scaling',
+    'innerRadiusScaling: inner-radius-scaling',
+    'rotation',
+    'dx',
+    'dy'
   ]
 })
 export class D3Gear extends D3Element {
@@ -36,6 +41,11 @@ export class D3Gear extends D3Element {
   cornerRadiusPercentage: number = 0;
   triangleColor: string;
   format: string;
+  radiusScaling = .9;
+  innerRadiusScaling = 0.3;
+  rotation = 0;
+  dx = 0;
+  dy = 0;
   layout;
 
   private _colorScale;
@@ -65,13 +75,13 @@ export class D3Gear extends D3Element {
   }
 
   redraw() {
-    let baseRadius = this.height / 3;
+    let baseRadius = this.height * 0.5 * this.radiusScaling;
     let data = this.data;
     this.chart.width = this.width;
     this.chart.height = this.height;
 
-    let xcenter = this.width / 2;
-    let ycenter = this.height / 2;
+    let xcenter = this.width / 2 + (+this.dx);
+    let ycenter = this.height / 2 + (+this.dy);
 
     let startAngle = 0;
     let endAngle = 2 * Math.PI;
@@ -82,6 +92,10 @@ export class D3Gear extends D3Element {
     } else if (this.format == 'half-right') {
       endAngle = Math.PI;
       xcenter = 0;
+    } else { // rotation only works on non half formats
+      let rotationInRadians = this.rotation * Math.PI / 180;
+      startAngle = rotationInRadians;
+      endAngle = rotationInRadians + 2 * Math.PI;
     }
 
     this.element.attr("transform", `translate(${xcenter} ${ycenter})`);
@@ -100,6 +114,12 @@ export class D3Gear extends D3Element {
     for (let i in data) {
       let d = data[i];
       let pd = pieData[i];
+      if (pd.startAngle < 0) {
+        pd.startAngle += 2 * Math.PI;
+      }
+      if (pd.endAngle < 0) {
+        pd.endAngle -= 2 * Math.PI;
+      }
       let midAngleRadians = ((pd.startAngle + pd.endAngle) / 2) - Math.PI / 2;
       if (midAngleRadians < 0) {
         midAngleRadians += 2 * Math.PI;
@@ -110,7 +130,7 @@ export class D3Gear extends D3Element {
       let halfPi = (Math.PI / 2);
       let lr = midAngleRadians > halfPi && midAngleRadians < 3 * halfPi;
 
-      let innerR = 0.3 * baseRadius;
+      let innerR = this.innerRadiusScaling * baseRadius;
       if (this.innerRadiusField && d[this.innerRadiusField]) {
         innerR = +d[this.innerRadiusField] * baseRadius;
       }

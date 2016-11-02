@@ -69,8 +69,26 @@
     <h1>Gear Chart</h1>
     <div class="d3-chart">
       <svg d3-chart [data]="gear">
-        <g d3-gear corner-radius-percentage="4" angle-padding="0.01" outer-radius-field="outerR" inner-radius-field="innerR" inner-label-radius-field="innerLR" inner-radius-field="innerR" inner-label-field="innerL" outer-label-field="outerL" weight-field="weight" color-scale="category20c"></g>
+        <g d3-gear dx="-50" radius-scaling="0.7" rotation="45" corner-radius-percentage="4" angle-padding="0.01" outer-radius-field="outerR"
+           inner-radius-field="innerR" inner-label-radius-field="innerLR" inner-radius-field="innerR"
+           inner-label-field="innerL" outer-label-field="outerL" weight-field="weight" color-scale="category20c"></g>
       </svg>
+    </div>
+    <div class="row">
+      <div class="d3-chart col-sm-6">
+        <svg d3-chart [data]="gear">
+          <g d3-gear dy="20" radius-scaling="0.66" format="half-right" corner-radius-percentage="4" angle-padding="0.01" outer-radius-field="outerR"
+             inner-radius-field="innerR" inner-label-radius-field="innerLR" inner-radius-field="innerR"
+             inner-label-field="innerL" outer-label-field="outerL" weight-field="weight" color-scale="category20c"></g>
+        </svg>
+      </div>
+      <div class="d3-chart col-sm-6">
+        <svg d3-chart [data]="gear">
+          <g d3-gear dy="-20" radius-scaling="0.66" format="half-left" corner-radius-percentage="4" angle-padding="0.01" outer-radius-field="outerR"
+             inner-radius-field="innerR" inner-label-radius-field="innerLR" inner-radius-field="innerR"
+             inner-label-field="innerL" outer-label-field="outerL" weight-field="weight" color-scale="category20c"></g>
+        </svg>
+      </div>
     </div>
   </section>
 
