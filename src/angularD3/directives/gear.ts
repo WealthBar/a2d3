@@ -19,6 +19,7 @@ import d3 = require('d3');
     'color',
     'triangleColor: triangle-color',
     'colorScale: color-scale',
+    'format'
   ]
 })
 export class D3Gear extends D3Element {
@@ -34,6 +35,7 @@ export class D3Gear extends D3Element {
   anglePadding: number = 0;
   cornerRadiusPercentage: number = 0;
   triangleColor: string;
+  format: string;
   layout;
 
   private _colorScale;
@@ -68,13 +70,25 @@ export class D3Gear extends D3Element {
     this.chart.width = this.width;
     this.chart.height = this.height;
 
-    //let arc = this.createArc(radius);
-    //let arcTween = this.createArcTween(arc);
     let xcenter = this.width / 2;
     let ycenter = this.height / 2;
+
+    let startAngle = 0;
+    let endAngle = 2 * Math.PI;
+
+    if (this.format == 'half-left') {
+      startAngle = Math.PI;
+      xcenter = this.width;
+    } else if (this.format == 'half-right') {
+      endAngle = Math.PI;
+      xcenter = 0;
+    }
+
     this.element.attr("transform", `translate(${xcenter} ${ycenter})`);
 
     let pieData = d3.layout.pie()
+      .startAngle(startAngle)
+      .endAngle(endAngle)
       .padAngle(this.anglePadding)
       .sort(null)
       .value((d) => {
@@ -203,7 +217,7 @@ export class D3Gear extends D3Element {
         }
       )
       .attr(
-        'fill', this.triangleColor||"grey"
+        'fill', this.triangleColor || "grey"
       );
 
     let innerLabel = this.element.selectAll("text.gear-label-inner").data(layoutData);
