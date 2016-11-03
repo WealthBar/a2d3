@@ -6,3 +6,4 @@ app/components
 typings
 npm-debug.log
 dist
+.idea/
