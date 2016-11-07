@@ -2,7 +2,6 @@ var path = require('path');
 var webpack = require('webpack');
 
 // Webpack Plugins
-var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 /*
@@ -10,13 +9,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
  */
 module.exports = {
   entry: {
-    'vendor': './src/vendor.ts',
     'app': './src/bootstrap.ts', // our angular app
   },
 
 
   output: {
-    path: './docs',
+    path: root('docs'),
     filename: '[name].[hash].js',
     chunkFilename: '[id].[hash].chunk.js'
   },
@@ -56,8 +54,6 @@ module.exports = {
   },
 
   plugins: [
-    new CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.js', minChunks: Infinity }),
-    new CommonsChunkPlugin({ name: 'common', filename: 'common.js', minChunks: 2, chunks: ['app', 'vendor'] }),
     new webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery",

@@ -11,7 +11,6 @@
   },
   "files": [
     "src/bootstrap.ts",
-    "src/vendor.ts",
     "src/angularD3/index.ts"
   ],
   "compileOnSave": false

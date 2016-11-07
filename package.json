@@ -20,12 +20,12 @@
     "src/angularD3/"
   ],
   "scripts": {
-    "clean": "rimraf node_modules doc && npm cache clean",
+    "clean": "rimraf node_modules && npm cache clean",
     "clean-install": "npm run clean && npm install",
     "clean-start": "npm run clean && npm start",
     "watch": "webpack --watch --progress --profile --colors --display-error-details --display-cached",
     "dist": "webpack --config webpack.build.js",
-    "docs": "webpack",
+    "docs": "rimraf docs/* && webpack",
     "e2e": "protractor",
     "test": "karma start",
     "ci": "npm run e2e && npm run test",
