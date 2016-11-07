@@ -1,7 +1,10 @@
-const path = require('path');
+var path = require('path');
+var webpack = require('webpack');
 
+/*
+ * Config
+ */
 module.exports = {
-  debug: false,
   devtool: 'source-map',
 
   entry: [
@@ -24,27 +27,19 @@ module.exports = {
   },
 
   resolve: {
-    root: path.resolve('./src'),
-    extensions: ['', '.ts', '.js'],
+    modules: ["src", "node_modules"],
+    extensions: ['.js', '.ts'],
   },
 
   module: {
-    preLoaders: [ { test: /\.ts$/, loader: 'tslint-loader' } ],
+    exprContextCritical: false,
     loaders: [
+      // Support for .ts files.
       {
         test: /\.ts$/,
-        loader: 'ts'
+        loader: 'ts',
+        query: { configFileName: "tsconfig.build.json" },
       },
     ],
-  },
-
-  ts: {
-    configFileName: "tsconfig.build.json",
-  },
-
-  tslint: {
-    emitErrors: true,
-    failOnHint: true,
-    resourcePath: 'src'
   },
 };

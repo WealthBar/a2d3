@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "es5",
     "module": "commonjs",
     "sourceMap": true,
-    "types": ["webpack", "requirejs"],
+    "types": ["webpack", "requirejs", "core-js"],
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "removeComments": false,
