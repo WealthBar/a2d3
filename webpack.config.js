@@ -16,6 +16,7 @@ module.exports = {
 
 
   output: {
+    path: './docs',
     filename: '[name].[hash].js',
     chunkFilename: '[id].[hash].chunk.js'
   },
