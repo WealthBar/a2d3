@@ -5,49 +5,6 @@ export interface ID3Element {
   redraw(): void;
 }
 
-export class D3Element implements ID3Element {
-  element
-  _margin = { top: 0, left: 0, right: 0, bottom: 0 }
-
-  constructor(
-    public chart: D3Chart,
-    public el: ElementRef,
-    @Optional() private _marginEl?: D3Margin
-  ) {
-    this.element = d3.select(el.nativeElement)
-    chart.addElement(this)
-  }
-
-  get margin() {
-    if (this._marginEl) return this._marginEl.margin
-    return this._margin
-  }
-
-  get nativeElement() { return this.el.nativeElement }
-
-  get width() {
-    if (this._marginEl) {
-      return this._marginEl.width
-    } else {
-      return this.chart.width
-    }
-  }
-
-  get height() {
-    if (this._marginEl) {
-      return this._marginEl.height
-    } else {
-      return this.chart.height
-    }
-  }
-
-  get data() { return this.chart.data }
-
-  getScale(name) { return this.chart.getScale(name) }
-
-  redraw() { return }
-}
-
 export interface D3Scale {
   name: string
   scale
@@ -149,3 +106,47 @@ export class D3Margin implements ID3Element {
       .attr("transform", `translate(${this.margin.left || '0'} ${this.margin.top || '0'})`)
   }
 }
+
+export class D3Element implements ID3Element {
+  element
+  _margin = { top: 0, left: 0, right: 0, bottom: 0 }
+
+  constructor(
+    public chart: D3Chart,
+    public el: ElementRef,
+    @Optional() private _marginEl?: D3Margin
+  ) {
+    this.element = d3.select(el.nativeElement)
+    chart.addElement(this)
+  }
+
+  get margin() {
+    if (this._marginEl) return this._marginEl.margin
+    return this._margin
+  }
+
+  get nativeElement() { return this.el.nativeElement }
+
+  get width() {
+    if (this._marginEl) {
+      return this._marginEl.width
+    } else {
+      return this.chart.width
+    }
+  }
+
+  get height() {
+    if (this._marginEl) {
+      return this._marginEl.height
+    } else {
+      return this.chart.height
+    }
+  }
+
+  get data() { return this.chart.data }
+
+  getScale(name) { return this.chart.getScale(name) }
+
+  redraw() { return }
+}
+

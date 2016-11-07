@@ -1,9 +1,10 @@
 require('script!jquery/dist/jquery.js');
 require('bootstrap-loader');
 
-// Polyfills
-require('reflect-metadata')
-require('core-js')
-require('zone.js')
+require('core-js/es6');
+require('core-js/es7/reflect')
+require('zone.js/dist/zone')
 
-declare module "d3";
+require('web-animations-js')
+
+require('zone.js/dist/long-stack-trace-zone');

@@ -16,13 +16,13 @@ export class D3PieBase extends D3Element {
   }
 
   createArc(radius: number) {
-    return d3.svg.arc()
+    return d3.svg.arc<any>()
       .outerRadius(radius)
       .innerRadius(radius * this.innerRadius);
   }
 
   createLabelArc(radius, offset = 0) {
-    return d3.svg.arc()
+    return d3.svg.arc<any>()
       .outerRadius(radius * this.labelRadius + offset)
       .innerRadius(radius * this.labelRadius + offset);
   }

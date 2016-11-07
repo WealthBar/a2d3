@@ -8,29 +8,30 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
  * Config
  */
 module.exports = {
-  // for faster builds use 'eval'
-  devtool: 'source-map',
-  debug: true, // remove in production
-
   entry: {
     'vendor': './src/vendor.ts',
     'app': './src/bootstrap.ts', // our angular app
   },
 
-  // Config for our build files
+
   output: {
-    path: 'docs',
-    filename: '[name].js',
-    sourceMapFilename: '[name].map',
-    chunkFilename: '[id].chunk.js',
+    filename: '[name].[hash].js',
+    chunkFilename: '[id].[hash].chunk.js'
+  },
+
+  devServer: {
+    stats: 'minimal',
+    port: 4000,
+    headers: { 'Access-Control-Allow-Origin': '*' },
   },
 
   resolve: {
-    // ensure loader extensions match
-    extensions: ['','.ts','.js','.json', '.css', '.html', '.scss']
+    modules: ["src", "node_modules"],
+    extensions: ['.js', '.ts', '.html', '.css', '.scss', '.json'],
   },
 
   module: {
+    exprContextCritical: false,
     loaders: [
       // Support for .ts files.
       {
@@ -50,7 +51,6 @@ module.exports = {
       { test: /\.html$/,  loader: 'raw-loader' },
       { test: /\.(ttf|svg|png|gif|jpg|woff|woff2|eot|csv)$/, loader: "file" },
     ],
-    noParse: [ /.+zone\.js\/dist\/.+/, /.+angular2\/bundles\/.+/ ]
   },
 
   plugins: [
@@ -63,10 +63,6 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({ template: 'src/index.html' }),
   ],
-  devServer: {
-    historyApiFallback: true,
-    contentBase: 'docs',
-  }
 };
 
 // Helper functions
@@ -74,9 +70,4 @@ module.exports = {
 function root(args) {
   args = Array.prototype.slice.call(arguments, 0);
   return path.join.apply(path, [__dirname].concat(args));
-}
-
-function rootNode(args) {
-  args = Array.prototype.slice.call(arguments, 0);
-  return root.apply(path, ['node_modules'].concat(args));
 }
