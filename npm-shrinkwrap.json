@@ -1,0 +1,11 @@
+{
+  "name": "a2d3",
+  "version": "1.0.0-rc.9",
+  "dependencies": {
+    "lodash.clonedeep": {
+      "version": "4.5.0",
+      "from": "lodash.clonedeep@>=4.3.2 <5.0.0",
+      "resolved": "https://registry.npmjs.org/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz"
+    }
+  }
+}

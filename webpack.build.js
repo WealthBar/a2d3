@@ -20,10 +20,9 @@ module.exports = {
   },
 
   externals: {
-    "@angular": true,
-    "@angular/core": true,
-    "d3": true,
-    'lodash.clonedeep': true,
+    "@angular/core": "@angular/core",
+    "d3": "d3",
+    'lodash.clonedeep': "lodash.clonedeep",
   },
 
   resolve: {
@@ -37,7 +36,7 @@ module.exports = {
       // Support for .ts files.
       {
         test: /\.ts$/,
-        loader: 'ts',
+        loader: 'ts-loader',
         query: { configFileName: "tsconfig.build.json" },
       },
     ],

@@ -1,6 +1,6 @@
 import {Optional, Directive, ElementRef} from "@angular/core";
 import {D3Chart, D3Element, D3Margin} from "./chart";
-import d3 = require('d3');
+import * as d3 from 'd3'
 
 export class D3PieBase extends D3Element {
   innerRadius: number = 0;

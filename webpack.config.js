@@ -44,12 +44,12 @@ module.exports = {
       { test: /\.json$/,  loader: 'json-loader' },
 
       // Support for CSS as raw text
-      { test: /\.css$/, loader: 'style!css' },
-      { test: /\.scss$/, loader: 'style!css!sass' },
+      { test: /\.css$/, loader: 'style-loader!css-loader' },
+      { test: /\.scss$/, loader: 'style-loader!css-loader!sass-loader' },
 
       // support for .html as raw text
       { test: /\.html$/,  loader: 'raw-loader' },
-      { test: /\.(ttf|svg|png|gif|jpg|woff|woff2|eot|csv)$/, loader: "file" },
+      { test: /\.(ttf|svg|png|gif|jpg|woff|woff2|eot|csv)$/, loader: "file-loader" },
     ],
   },
 
