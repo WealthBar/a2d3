@@ -1,4 +1,4 @@
-require('script!jquery/dist/jquery.js');
+require('script-loader!jquery/dist/jquery.js');
 require('bootstrap-loader');
 
 require('core-js/es6');

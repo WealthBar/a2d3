@@ -56,7 +56,7 @@
     "@types/lodash": "^4.14.34",
     "@types/requirejs": "^2.1.26",
     "@types/webpack": "^1.12.34",
-    "bootstrap-loader": "^2.0.0-beta.12",
+    "bootstrap-loader": "2.0.0-beta.16",
     "bootstrap-sass": "^3.3.6",
     "core-js": "^2.4.1",
     "css-loader": "^0.23.1",
