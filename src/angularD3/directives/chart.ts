@@ -1,4 +1,4 @@
-import {Input, Directive, Optional, ElementRef} from '@angular/core';
+import {Input, Directive, Optional, ElementRef, OnInit} from '@angular/core';
 import * as d3 from 'd3'
 
 export interface ID3Element {
@@ -19,7 +19,7 @@ export interface D3Scale {
   selector: '[d3-chart]',
   inputs: ['data', 'debounce'],
 })
-export class D3Chart {
+export class D3Chart implements OnInit {
   element: any;
   chart: any;
   debounce = 200;
@@ -62,6 +62,10 @@ export class D3Chart {
       this.elements.forEach((e) => { e.redraw() })
       this._timeout = null
     }, this.debounce)
+  }
+
+  ngOnInit() {
+    this.redraw()
   }
 }
 
@@ -149,4 +153,3 @@ export class D3Element implements ID3Element {
 
   redraw() { return }
 }
-
