@@ -1,5 +1,5 @@
-import {Optional, Directive, ElementRef} from "@angular/core";
-import {D3Chart, D3Element, D3Margin} from "./chart";
+import { Optional, Directive, ElementRef } from "@angular/core";
+import { D3Chart, D3Element, D3Margin } from "./chart";
 import * as d3 from 'd3'
 
 @Directive({
@@ -50,17 +50,6 @@ export class D3Gear extends D3Element {
 
   private _colorScale;
 
-  // createArcTween(arc) {
-  //   return function (d) {
-  //     this._current = this._current || d;
-  //     let interpolate = d3.interpolate(this._current, d);
-  //     this._current = d;
-  //     return (t) => {
-  //       return arc(interpolate(t));
-  //     }
-  //   }
-  // }
-
   constructor(chart: D3Chart, el: ElementRef, @Optional() margin?: D3Margin) {
     super(chart, el, margin);
     this.element.attr("class", "gear");
@@ -77,18 +66,22 @@ export class D3Gear extends D3Element {
   redraw() {
     let baseRadius = this.height * 0.5 * this.radiusScaling;
     let data = this.data;
-    this.chart.width = this.width;
-    this.chart.height = this.height;
 
-    let xcenter = this.width / 2 + (+this.dx);
-    let ycenter = this.height / 2 + (+this.dy);
+    if (this.width > 0 && this.height > 0) {
+      this.chart.width = this.width;
+      this.chart.height = this.height;
+    }
+    if (this.chart.width === 0 || this.chart.height === 0) { return }
+
+    let xcenter = this.chart.width / 2 + (+this.dx);
+    let ycenter = this.chart.height / 2 + (+this.dy);
 
     let startAngle = 0;
     let endAngle = 2 * Math.PI;
 
     if (this.format == 'half-left') {
       startAngle = Math.PI;
-      xcenter = this.width;
+      xcenter = this.chart.width;
     } else if (this.format == 'half-right') {
       endAngle = Math.PI;
       xcenter = 0;
@@ -190,24 +183,24 @@ export class D3Gear extends D3Element {
     slices
       .enter()
       .append(
-        "path"
+      "path"
       )
       .attr(
-        "class",
-        (d, i) => {
-          return `gear gear-${i}`
-        }
+      "class",
+      (d, i) => {
+        return `gear gear-${i}`
+      }
       )
       .attr(
-        "d",
-        (d, i) => {
-          return d.slicePath;
-        }
+      "d",
+      (d, i) => {
+        return d.slicePath;
+      }
       )
       .attr(
-        'fill', (d, i) => {
-          return this.getColors(d, i)
-        }
+      'fill', (d, i) => {
+        return this.getColors(d, i)
+      }
       );
 
     slices.exit().remove();
@@ -216,28 +209,28 @@ export class D3Gear extends D3Element {
     triangles
       .enter()
       .append(
-        "path"
+      "path"
       )
       .attr(
-        "class",
-        (d, i) => {
-          return `gear.label-triangle gear-label-triangle-${i}`
-        }
+      "class",
+      (d, i) => {
+        return `gear.label-triangle gear-label-triangle-${i}`
+      }
       )
       .attr(
-        'transform',
-        (d) => {
-          return `rotate(${d.midDegrees})`;
-        }
+      'transform',
+      (d) => {
+        return `rotate(${d.midDegrees})`;
+      }
       )
       .attr(
-        "d",
-        (d) => {
-          return d.outerLabelTrianglePath;
-        }
+      "d",
+      (d) => {
+        return d.outerLabelTrianglePath;
+      }
       )
       .attr(
-        'fill', this.triangleColor || "grey"
+      'fill', this.triangleColor || "grey"
       );
 
     let innerLabel = this.element.selectAll("text.gear-label-inner").data(layoutData);
@@ -245,32 +238,32 @@ export class D3Gear extends D3Element {
       .append('text')
 
       .attr(
-        'class',
-        (d, i) => {
-          return `gear-label-inner gear-label-inner-${i}`;
-        }
+      'class',
+      (d, i) => {
+        return `gear-label-inner gear-label-inner-${i}`;
+      }
       )
       .attr('text-anchor',
-        (d) => {
-          return d.innerLabelAnchor;
-        }
+      (d) => {
+        return d.innerLabelAnchor;
+      }
       )
       .attr(
-        'dy',
-        (d) => {
-          return d.innerLabelDy;
-        }
+      'dy',
+      (d) => {
+        return d.innerLabelDy;
+      }
       )
       .attr(
-        'transform',
-        (d) => {
-          return `translate(${d.innerLabelX},${d.innerLabelY})`;
-        }
+      'transform',
+      (d) => {
+        return `translate(${d.innerLabelX},${d.innerLabelY})`;
+      }
       )
       .text(
-        (d) => {
-          return d.innerLabel;
-        }
+      (d) => {
+        return d.innerLabel;
+      }
       );
 
     innerLabel.exit().remove();
@@ -280,38 +273,38 @@ export class D3Gear extends D3Element {
     outerLabel.enter()
       .append("text")
       .attr(
-        "class",
-        (d, i) => {
-          return `gear-label-outer gear-label-outer-${i}`;
-        }
+      "class",
+      (d, i) => {
+        return `gear-label-outer gear-label-outer-${i}`;
+      }
       )
       .attr('text-anchor',
-        (d) => {
-          return d.outerLabelAnchor;
-        }
+      (d) => {
+        return d.outerLabelAnchor;
+      }
       )
       .attr(
-        "class",
-        (d, i) => {
-          return `gear-label-outer gear-label-outer-${i}`;
-        }
+      "class",
+      (d, i) => {
+        return `gear-label-outer gear-label-outer-${i}`;
+      }
       )
       .attr(
-        "dy",
-        (d) => {
-          return d.outerLabelDy;
-        }
+      "dy",
+      (d) => {
+        return d.outerLabelDy;
+      }
       )
       .attr(
-        'transform',
-        (d) => {
-          return `translate(${d.outerLabelX},${d.outerLabelY})`;
-        }
+      'transform',
+      (d) => {
+        return `translate(${d.outerLabelX},${d.outerLabelY})`;
+      }
       )
       .text(
-        (d) => {
-          return d.outerLabel
-        }
+      (d) => {
+        return d.outerLabel
+      }
       );
 
     outerLabel.exit().remove();
@@ -323,15 +316,5 @@ export class D3Gear extends D3Element {
     if (this.colorScale) return this.colorScale(i);
     if (this.color) return d[this.color];
     if (d.color) return d.color;
-  }
-
-  private spaceOut(values, selector) {
-    values = values.sort((a, b) => {
-      return selector(a) - selector(b)
-    });
-    for (let i = values.length - 1; i >= 3; i -= 2) {
-      values = values.slice(1, i).concat(values[0], values.slice(i));
-    }
-    return values;
   }
 }
