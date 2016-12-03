@@ -1,6 +1,6 @@
 {
   "name": "a2d3",
-  "version": "1.0.0-rc.11",
+  "version": "1.0.0-rc.12",
   "description": "AngularJS chart directives and other integrations for D3.js",
   "authors": [
     "Chris Nicola <chris.nicola@wealthbar.com>"
@@ -15,6 +15,7 @@
   },
   "license": "MIT",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist/",
     "src/angularD3/"
