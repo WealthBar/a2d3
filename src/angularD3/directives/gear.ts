@@ -214,7 +214,7 @@ export class D3Gear extends D3Element {
       .attr(
       "class",
       (d, i) => {
-        return `gear.label-triangle gear-label-triangle-${i}`
+        return `gear-label-triangle gear-label-triangle-${i}`
       }
       )
       .attr(
