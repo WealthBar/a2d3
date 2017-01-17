@@ -33,6 +33,7 @@ export class D3Chart implements OnInit {
     this.element = elementRef.nativeElement;
     this.chart = d3.select(this.element).attr('class', "d3-chart")
     window.addEventListener('resize', () => this.redraw())
+    window.addEventListener('a2d3RedrawRequest', () => this.redraw())
   }
 
   get width() { return this.element.clientWidth; }
