@@ -7,3 +7,5 @@ typings
 npm-debug.log
 dist
 .idea/
+*.ngfactory.ts
+*.ngsummary.json
