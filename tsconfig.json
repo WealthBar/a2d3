@@ -1,13 +1,16 @@
 {
   "compilerOptions": {
-    "target": "es2015",
+    "target": "es5",
     "module": "es2015",
     "moduleResolution": "node",
-    "removeComments": true,
+    "sourceMap": true,
+    "inlineSources": true,
+    "types": [],
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "sourceMap": true,
-    "types": []
+    "removeComments": true,
+    "noImplicitAny": false,
+    "lib": ["es6", "dom"]
   },
   "files": [
     "src/bootstrap.ts",
