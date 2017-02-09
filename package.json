@@ -1,6 +1,6 @@
 {
   "name": "a2d3",
-  "version": "1.0.0-rc.16",
+  "version": "1.0.0-rc.17",
   "description": "AngularJS chart directives and other integrations for D3.js",
   "authors": [
     "Chris Nicola <chris.nicola@wealthbar.com>"
@@ -25,7 +25,7 @@
     "clean-install": "npm run clean && npm install",
     "clean-start": "npm run clean && npm start",
     "watch": "webpack --watch --progress --profile --colors --display-error-details --display-cached",
-    "dist": "webpack --config webpack.build.js",
+    "dist": "tsc -p tsconfig.build.json",
     "docs": "rimraf docs/* && webpack",
     "e2e": "protractor",
     "test": "karma start",
@@ -33,14 +33,11 @@
     "start": "webpack-dev-server",
     "prepublish": "npm run dist"
   },
-  "dependencies": {
-    "lodash.clonedeep": "^4.3.2",
-    "rxjs": "^5.0.1",
-    "zone": "^0.3.4"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "@angular/core": "^2.2.3",
-    "d3": "^3.5.16"
+    "d3": "^3.5.16",
+    "lodash": "^4.17.4"
   },
   "devDependencies": {
     "@angular/common": "^2.2.3",
@@ -56,9 +53,9 @@
     "@types/d3-array": "0.0.3",
     "@types/d3-scale": "0.0.3",
     "@types/jasmine": "^2.2.33",
-    "@types/lodash": "^4.14.34",
     "@types/requirejs": "^2.1.26",
     "@types/webpack": "^1.12.34",
+    "awesome-typescript-loader": "^3.0.4-rc.0",
     "bootstrap-loader": "2.0.0-beta.16",
     "bootstrap-sass": "^3.3.6",
     "core-js": "^2.4.1",
@@ -87,7 +84,7 @@
     "reflect-metadata": "0.1.2",
     "resolve-url-loader": "^1.4.3",
     "rimraf": "^2.4.4",
-    "rxjs": "5.0.0-beta.12",
+    "rxjs": "5.0.1",
     "sass-loader": "3.2.1",
     "script-loader": "^0.6.1",
     "style-loader": "^0.13.0",

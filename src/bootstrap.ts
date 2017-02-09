@@ -1,15 +1,13 @@
-require('script-loader!jquery/dist/jquery.js');
-require('bootstrap-loader');
+import 'script-loader!jquery/dist/jquery.js'
+import 'bootstrap-loader';
 
-require('core-js/es6');
-require('core-js/es7/reflect')
-require('zone.js/dist/zone')
+import 'core-js/es7/reflect';
+import 'web-animations-js';
 
-require('web-animations-js')
+import 'zone.js/dist/zone';
+import 'zone.js/dist/long-stack-trace-zone';
 
-require('zone.js/dist/long-stack-trace-zone');
-
-require('./styles/styles.scss')
+import './styles/styles.scss';
 
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';

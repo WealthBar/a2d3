@@ -1,7 +1,12 @@
+declare const require;
 /*
  * Angular 2 decorators and services
  */
 import {Component} from '@angular/core';
+const template = require('./app.html');
+const data = require('./data/data.csv');
+const pieData = require('./data/pieData.csv');
+const gearData = require('./data/gearData.csv');
 
 /*
  * App Component
@@ -9,12 +14,12 @@ import {Component} from '@angular/core';
  */
 @Component({
   selector: 'app', // <app></app>
-  template: require('./app.html'),
+  template: template,
 })
 export class AppComponent {
-  dataUrl: string = require('./data/data.csv')
-  pieDataUrl: string = require('./data/pieData.csv')
-  gearDataUrl: string = require('./data/gearData.csv')
+  dataUrl: string = data
+  pieDataUrl: string = pieData
+  gearDataUrl: string = gearData
   line: {}[]
   pie: {}[]
   gear: {}[]
@@ -85,7 +90,5 @@ export class AppComponent {
     })
   }
 
-  log(data) {
-
-  } // console.log("log", data) }
+  log(data) { console.log("log", data) }
 }

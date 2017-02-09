@@ -36,7 +36,7 @@ module.exports = {
       // Support for .ts files.
       {
         test: /\.ts$/,
-        loader: 'ts-loader',
+        loader: 'awesome-typescript-loader',
         exclude: [ /\.(spec|e2e)\.ts$/ ]
       },
 
