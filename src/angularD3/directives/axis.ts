@@ -1,7 +1,7 @@
 import {Host, Directive, ElementRef, Optional} from '@angular/core'
 import {D3Chart, D3Margin, D3Element, D3Scale} from './chart'
 import * as d3 from 'd3'
-import * as clonedeep from 'lodash/fp/clonedeep'
+import * as cloneDeep from 'lodash/fp/cloneDeep'
 
 @Directive({
   selector: '[d3-axis]',
@@ -123,7 +123,7 @@ export class D3Axis extends D3Element implements D3Scale {
     if (this.customTimeFormat) {
       // We copy this because D3 is bad and mutates the time format.
       // See: https://github.com/mbostock/d3/issues/1769
-      var copy = clonedeep(this.customTimeFormat)
+      var copy = cloneDeep(this.customTimeFormat)
       var mf = d3.time.format.multi(copy)
       axis.tickFormat((d) => { return mf(new Date(d)) })
     }
