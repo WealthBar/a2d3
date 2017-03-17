@@ -1,5 +1,5 @@
-import {Optional, Directive, ElementRef} from "@angular/core";
-import {D3Chart, D3Element, D3Margin} from "./chart";
+import { Optional, Directive, ElementRef } from "@angular/core";
+import { D3Chart, D3Element, D3Margin } from "./chart";
 import * as d3 from 'd3'
 
 export class D3PieBase extends D3Element {
@@ -9,9 +9,9 @@ export class D3PieBase extends D3Element {
 
   get radius() {
     if (this.radiusAttr === 'height') {
-      return this.height / 2;
+      return (this.height - this.verticalPadding) / 2;
     } else {
-      return this.width / 2;
+      return (this.width - this.horizontalPadding) / 2;
     }
   }
 
@@ -44,9 +44,11 @@ export class D3PieBase extends D3Element {
     if (this.radiusAttr === 'height') {
       //noinspection JSSuspiciousNameCombination
       this.chart.width = this.height;
+      this.chart.height = this.height;
     } else {
       //noinspection JSSuspiciousNameCombination
       this.chart.height = this.width;
+      this.chart.width = this.width;
     }
   }
 }
@@ -162,9 +164,9 @@ export class D3Pie extends D3PieBase implements D3Element {
         };
 
         let hasCollision = !(thisbb.right < prevbb.left
-        || thisbb.left > prevbb.right
-        || thisbb.bottom < prevbb.top
-        || thisbb.top > prevbb.bottom);
+          || thisbb.left > prevbb.right
+          || thisbb.bottom < prevbb.top
+          || thisbb.top > prevbb.bottom);
 
         if (prevbb && hasCollision) {
           let ctx = thisbb.left + (thisbb.right - thisbb.left) / 2;
