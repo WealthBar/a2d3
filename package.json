@@ -33,7 +33,9 @@
     "start": "webpack-dev-server",
     "prepublish": "npm run dist"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@angular/compiler-cli": "^2.4.10"
+  },
   "peerDependencies": {
     "@angular/core": "^2.2.3",
     "d3": "^3.5.16",
@@ -43,10 +45,12 @@
     "@angular/common": "^2.2.3",
     "@angular/compiler": "^2.2.3",
     "@angular/core": "^2.2.3",
+    "@angular/compiler-cli": "^2.2.3",
     "@angular/forms": "^2.2.3",
     "@angular/http": "^2.2.3",
     "@angular/platform-browser": "^2.2.3",
     "@angular/platform-browser-dynamic": "^2.2.3",
+    "@angular/platform-server": "^2.2.3",
     "@angular/router": "^3.2.3",
     "@types/core-js": "^0.9.32",
     "@types/d3": "0.0.33",
