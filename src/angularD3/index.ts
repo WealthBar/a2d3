@@ -22,6 +22,19 @@ export const D3_DIRECTIVES = [
   D3Gear,
 ];
 
+export {
+  D3Arc,
+  D3Area,
+  D3Axis,
+  D3Bars,
+  D3Chart,
+  D3Data,
+  D3Line,
+  D3Margin,
+  D3Pie,
+  D3Gear,
+};
+
 @NgModule({
   declarations: D3_DIRECTIVES,
   exports: D3_DIRECTIVES,
