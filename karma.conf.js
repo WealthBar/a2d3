@@ -1,6 +1,6 @@
 // @AngularClass
 
-module.exports = function(config) {
+module.exports = function (config) {
   var _config = {
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -14,8 +14,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      // we are building the test environment in ./spec-bundle.js
-      { pattern: 'spec-bundle.js', watched: false }
+      { pattern: 'src/angularD3/**/*.spec.ts', watched: false }
     ],
 
 
@@ -27,8 +26,22 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'spec-bundle.js': ['webpack', 'sourcemap']
-      // 'test/**/*.spec.ts': ['webpack', 'sourcemap']
+      // 'spec-bundle.js': ['browserify']
+      // 'spec-bundle.js': ['webpack', 'sourcemap']
+      'test/**/*.spec.ts': ['webpack']
+    },
+
+    plugins: [
+      'karma-webpack',
+      'karma-jasmine',
+      'karma-sourcemap-loader',
+      'karma-phantomjs-launcher',
+      'karma-coverage',
+      'karma-webpack-preprocessor',
+    ],
+
+    webpackPreprocessor: {
+      configPath: './webpack.config.js'
     },
 
     webpack: {
@@ -36,7 +49,7 @@ module.exports = function(config) {
       resolve: {
         cache: false,
         root: __dirname,
-        extensions: ['','.ts','.js','.json', '.css', '.html'],
+        extensions: ['', '.ts', '.js', '.json', '.css', '.html'],
         alias: {
           'app': 'src/app',
           'common': 'src/common'
@@ -56,11 +69,11 @@ module.exports = function(config) {
                 2375  // 2375 -> Duplicate string index signature
               ]
             },
-            exclude: [ /\.e2e\.ts$/, /node_modules/ ]
+            exclude: [/\.e2e\.ts$/, /node_modules/]
           },
           { test: /\.json$/, loader: 'json-loader' },
           { test: /\.html$/, loader: 'raw-loader' },
-          { test: /\.css$/,  loader: 'raw-loader' }
+          { test: /\.css$/, loader: 'raw-loader' }
         ]
       },
       stats: { colors: true, reasons: true },

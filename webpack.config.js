@@ -37,18 +37,18 @@ module.exports = {
       {
         test: /\.ts$/,
         loader: 'awesome-typescript-loader',
-        exclude: [ /\.(spec|e2e)\.ts$/ ]
+        exclude: [/\.(spec|e2e)\.ts$/]
       },
 
       // Support for *.json files.
-      { test: /\.json$/,  loader: 'json-loader' },
+      { test: /\.json$/, loader: 'json-loader' },
 
       // Support for CSS as raw text
       { test: /\.css$/, loader: 'style-loader!css-loader' },
       { test: /\.scss$/, loader: 'style-loader!css-loader!sass-loader' },
 
       // support for .html as raw text
-      { test: /\.html$/,  loader: 'raw-loader' },
+      { test: /\.html$/, loader: 'raw-loader' },
       { test: /\.(ttf|svg|png|gif|jpg|woff|woff2|eot|csv)$/, loader: "file-loader" },
     ],
   },

@@ -12,11 +12,10 @@ Error.stackTraceLimit = Infinity;
 require('phantomjs-polyfill');
 require('es6-promise');
 require('es6-shim');
-require('es7-reflect-metadata/dist/browser');
-require('zone.js/dist/zone-microtask.js');
-require('zone.js/dist/long-stack-trace-zone.js');
-require('zone.js/dist/jasmine-patch.js');
-require('angular2/testing');
+// require('es7-reflect-metadata/dist/browser');
+// require('zone.js/dist/zone-microtask.js');
+// require('zone.js/dist/long-stack-trace-zone.js');
+// require('zone.js/dist/jasmine-patch.js');
 
 /*
   Ok, this is kinda crazy. We can use the the context method on
@@ -38,5 +37,5 @@ testContext.keys().forEach(testContext);
 
 // Select BrowserDomAdapter.
 // see https://github.com/AngularClass/angular2-webpack-starter/issues/124
-var domAdapter = require('angular2/src/platform/browser/browser_adapter');
-domAdapter.BrowserDomAdapter.makeCurrent();
+// var domAdapter = require('angular2/src/platform/browser/browser_adapter');
+// domAdapter.BrowserDomAdapter.makeCurrent();
