@@ -1,4 +1,4 @@
-import {Input, Directive, Optional, ElementRef, OnInit} from '@angular/core';
+import { Input, Directive, Optional, ElementRef, OnInit } from '@angular/core';
 import * as d3 from 'd3'
 
 export interface ID3Element {
@@ -35,10 +35,10 @@ export class D3Chart implements OnInit {
     window.addEventListener('resize', () => this.redraw())
   }
 
-  get width() { return this.element.clientWidth; }
+  get width() { return this.element.parentElement.clientWidth; }
   set width(value: number) { this.chart.attr("width", `${value}px`) }
 
-  get height() { return this.element.clientHeight; }
+  get height() { return this.element.parentElement.clientHeight; }
   set height(value: number) { this.chart.attr("height", `${value}px`) }
 
 
@@ -148,6 +148,14 @@ export class D3Element implements ID3Element {
   }
 
   get data() { return this.chart.data }
+
+  get horizontalPadding(): number {
+    return this.width - this.nativeElement.parentElement.clientWidth;
+  }
+
+  get verticalPadding(): number {
+    return this.height - this.nativeElement.parentElement.clientHeight;
+  }
 
   getScale(name) { return this.chart.getScale(name) }
 

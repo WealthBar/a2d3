@@ -1,5 +1,5 @@
-import {Host, Directive, ElementRef, Optional} from '@angular/core'
-import {D3Chart, D3Margin, D3Element, D3Scale} from './chart'
+import { Host, Directive, ElementRef, Optional } from '@angular/core'
+import { D3Chart, D3Margin, D3Element, D3Scale } from './chart'
 import * as d3 from 'd3'
 import * as cloneDeep from 'lodash/fp/cloneDeep'
 
@@ -191,7 +191,7 @@ export class D3Axis extends D3Element implements D3Scale {
         break;
 
       case 'left':
-        label.attr("x", `-${this.height / 2}`)
+        label.attr("x", `${(this.height / 2) * -1}`)
           .attr("dy", `${-this.margin.left + 18}`)
           .attr("style", "text-anchor: middle;")
           .attr("transform", "rotate(-90)")
