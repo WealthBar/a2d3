@@ -28,7 +28,6 @@
     "dist": "ngc -p tsconfig.build.json",
     "docs": "rimraf docs/* && webpack",
     "e2e": "protractor",
-    "test": "karma start",
     "ci": "npm run e2e && npm run test",
     "start": "webpack-dev-server",
     "prepublish": "npm run dist"
