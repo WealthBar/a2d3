@@ -34,25 +34,35 @@
     "prepublish": "npm run dist"
   },
   "dependencies": {
-    "@angular/compiler-cli": "^2.4.10"
+    "@angular/animations": "^4.0.0",
+    "@angular/common": "^4.0.0",
+    "@angular/compiler": "^4.0.0",
+    "@angular/compiler-cli": "^4.0.0",
+    "@angular/core": "^4.0.0",
+    "@angular/forms": "^4.0.0",
+    "@angular/http": "^4.0.0",
+    "@angular/platform-browser": "^4.0.0",
+    "@angular/platform-browser-dynamic": "^4.0.0",
+    "@angular/platform-server": "^4.0.0",
+    "@angular/router": "^4.0.0",
+    "typescript": "^2.2.1"
   },
   "peerDependencies": {
-    "@angular/core": "^2.2.3",
+    "@angular/core": "^4.0.0",
     "d3": "^3.5.16",
     "lodash": "^4.17.4"
   },
   "devDependencies": {
-    "@angular/cli": "^1.0.0-rc.2",
-    "@angular/common": "^2.2.3",
-    "@angular/compiler": "^2.2.3",
-    "@angular/compiler-cli": "^2.2.3",
-    "@angular/core": "^2.2.3",
-    "@angular/forms": "^2.2.3",
-    "@angular/http": "^2.2.3",
-    "@angular/platform-browser": "^2.2.3",
-    "@angular/platform-browser-dynamic": "^2.2.3",
-    "@angular/platform-server": "^2.2.3",
-    "@angular/router": "^3.2.3",
+    "@angular/cli": "^1.0.0",
+    "@angular/common": "^4.0.0",
+    "@angular/compiler": "^4.0.0",
+    "@angular/compiler-cli": "^4.0.0",
+    "@angular/core": "^4.0.0",
+    "@angular/forms": "^4.0.0",
+    "@angular/http": "^4.0.0",
+    "@angular/platform-browser": "^4.0.0",
+    "@angular/platform-browser-dynamic": "^4.0.0",
+    "@angular/router": "^4.0.0",
     "@types/core-js": "^0.9.32",
     "@types/d3": "0.0.33",
     "@types/d3-array": "0.0.3",
@@ -110,6 +120,6 @@
     "webpack-dev-middleware": "^1.10.1",
     "webpack-dev-server": "^2.4.2",
     "webpack-merge": "^4.1.0",
-    "zone.js": "^0.7.6"
+    "zone.js": "^0.8.4"
   }
 }

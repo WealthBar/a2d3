@@ -1,5 +1,130 @@
 {
   "name": "a2d3",
-  "version": "1.0.0-rc.19",
-  "dependencies": {}
+  "version": "1.0.0-rc.21",
+  "dependencies": {
+    "@angular/animations": {
+      "version": "4.0.0",
+      "from": "@angular/animations@latest",
+      "resolved": "https://registry.npmjs.org/@angular/animations/-/animations-4.0.0.tgz"
+    },
+    "@angular/common": {
+      "version": "4.0.0",
+      "from": "@angular/common@latest",
+      "resolved": "https://registry.npmjs.org/@angular/common/-/common-4.0.0.tgz"
+    },
+    "@angular/compiler": {
+      "version": "4.0.0",
+      "from": "@angular/compiler@latest",
+      "resolved": "https://registry.npmjs.org/@angular/compiler/-/compiler-4.0.0.tgz"
+    },
+    "@angular/compiler-cli": {
+      "version": "4.0.0",
+      "from": "@angular/compiler-cli@latest",
+      "resolved": "https://registry.npmjs.org/@angular/compiler-cli/-/compiler-cli-4.0.0.tgz",
+      "dependencies": {
+        "minimist": {
+          "version": "1.2.0",
+          "from": "minimist@>=1.2.0 <2.0.0",
+          "resolved": "https://registry.npmjs.org/minimist/-/minimist-1.2.0.tgz"
+        }
+      }
+    },
+    "@angular/core": {
+      "version": "4.0.0",
+      "from": "@angular/core@latest",
+      "resolved": "https://registry.npmjs.org/@angular/core/-/core-4.0.0.tgz"
+    },
+    "@angular/forms": {
+      "version": "4.0.0",
+      "from": "@angular/forms@latest",
+      "resolved": "https://registry.npmjs.org/@angular/forms/-/forms-4.0.0.tgz"
+    },
+    "@angular/http": {
+      "version": "4.0.0",
+      "from": "@angular/http@latest",
+      "resolved": "https://registry.npmjs.org/@angular/http/-/http-4.0.0.tgz"
+    },
+    "@angular/platform-browser": {
+      "version": "4.0.0",
+      "from": "@angular/platform-browser@latest",
+      "resolved": "https://registry.npmjs.org/@angular/platform-browser/-/platform-browser-4.0.0.tgz"
+    },
+    "@angular/platform-browser-dynamic": {
+      "version": "4.0.0",
+      "from": "@angular/platform-browser-dynamic@latest",
+      "resolved": "https://registry.npmjs.org/@angular/platform-browser-dynamic/-/platform-browser-dynamic-4.0.0.tgz"
+    },
+    "@angular/platform-server": {
+      "version": "4.0.0",
+      "from": "@angular/platform-server@latest",
+      "resolved": "https://registry.npmjs.org/@angular/platform-server/-/platform-server-4.0.0.tgz"
+    },
+    "@angular/router": {
+      "version": "4.0.0",
+      "from": "@angular/router@latest",
+      "resolved": "https://registry.npmjs.org/@angular/router/-/router-4.0.0.tgz"
+    },
+    "@angular/tsc-wrapped": {
+      "version": "4.0.0",
+      "from": "@angular/tsc-wrapped@4.0.0",
+      "resolved": "https://registry.npmjs.org/@angular/tsc-wrapped/-/tsc-wrapped-4.0.0.tgz"
+    },
+    "@types/node": {
+      "version": "6.0.66",
+      "from": "@types/node@>=6.0.46 <7.0.0",
+      "resolved": "https://registry.npmjs.org/@types/node/-/node-6.0.66.tgz"
+    },
+    "minimist": {
+      "version": "0.0.8",
+      "from": "minimist@0.0.8",
+      "resolved": "https://registry.npmjs.org/minimist/-/minimist-0.0.8.tgz"
+    },
+    "mkdirp": {
+      "version": "0.5.1",
+      "from": "mkdirp@>=0.5.1 <0.6.0",
+      "resolved": "https://registry.npmjs.org/mkdirp/-/mkdirp-0.5.1.tgz"
+    },
+    "parse5": {
+      "version": "3.0.2",
+      "from": "parse5@>=3.0.1 <4.0.0",
+      "resolved": "https://registry.npmjs.org/parse5/-/parse5-3.0.2.tgz"
+    },
+    "reflect-metadata": {
+      "version": "0.1.2",
+      "from": "reflect-metadata@0.1.2",
+      "resolved": "https://registry.npmjs.org/reflect-metadata/-/reflect-metadata-0.1.2.tgz"
+    },
+    "source-map": {
+      "version": "0.5.6",
+      "from": "source-map@>=0.5.3 <0.6.0",
+      "resolved": "https://registry.npmjs.org/source-map/-/source-map-0.5.6.tgz"
+    },
+    "source-map-support": {
+      "version": "0.4.14",
+      "from": "source-map-support@>=0.4.2 <0.5.0",
+      "resolved": "https://registry.npmjs.org/source-map-support/-/source-map-support-0.4.14.tgz"
+    },
+    "tsickle": {
+      "version": "0.21.6",
+      "from": "tsickle@>=0.21.0 <0.22.0",
+      "resolved": "https://registry.npmjs.org/tsickle/-/tsickle-0.21.6.tgz",
+      "dependencies": {
+        "minimist": {
+          "version": "1.2.0",
+          "from": "minimist@>=1.2.0 <2.0.0",
+          "resolved": "https://registry.npmjs.org/minimist/-/minimist-1.2.0.tgz"
+        }
+      }
+    },
+    "typescript": {
+      "version": "2.2.1",
+      "from": "typescript@latest",
+      "resolved": "https://registry.npmjs.org/typescript/-/typescript-2.2.1.tgz"
+    },
+    "xhr2": {
+      "version": "0.1.4",
+      "from": "xhr2@>=0.1.4 <0.2.0",
+      "resolved": "https://registry.npmjs.org/xhr2/-/xhr2-0.1.4.tgz"
+    }
+  }
 }
