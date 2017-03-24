@@ -1,6 +1,6 @@
 {
   "name": "a2d3",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "AngularJS chart directives and other integrations for D3.js",
   "authors": [
     "Chris Nicola <chris.nicola@wealthbar.com>"
@@ -34,7 +34,16 @@
     "prepublish": "npm run dist"
   },
   "dependencies": {
+    "awesome-typescript-loader": "^3.1.2"
+  },
+  "peerDependencies": {
+    "@angular/core": "^4.0.0",
+    "d3": "^3.5.16",
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
     "@angular/animations": "^4.0.0",
+    "@angular/cli": "^1.0.0",
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
     "@angular/compiler-cli": "^4.0.0",
@@ -45,31 +54,12 @@
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/platform-server": "^4.0.0",
     "@angular/router": "^4.0.0",
-    "typescript": "^2.2.1"
-  },
-  "peerDependencies": {
-    "@angular/core": "^4.0.0",
-    "d3": "^3.5.16",
-    "lodash": "^4.17.4"
-  },
-  "devDependencies": {
-    "@angular/cli": "^1.0.0",
-    "@angular/common": "^4.0.0",
-    "@angular/compiler": "^4.0.0",
-    "@angular/compiler-cli": "^4.0.0",
-    "@angular/core": "^4.0.0",
-    "@angular/forms": "^4.0.0",
-    "@angular/http": "^4.0.0",
-    "@angular/platform-browser": "^4.0.0",
-    "@angular/platform-browser-dynamic": "^4.0.0",
-    "@angular/router": "^4.0.0",
-    "@types/core-js": "^0.9.32",
+    "typescript": "^2.0.2",
     "@types/d3": "0.0.33",
     "@types/d3-array": "0.0.3",
     "@types/d3-scale": "0.0.3",
     "@types/jasmine": "^2.2.33",
     "@types/requirejs": "^2.1.26",
-    "@types/webpack": "^1.12.34",
     "awesome-typescript-loader": "^3.0.4-rc.0",
     "bootstrap-loader": "2.0.0-beta.16",
     "bootstrap-sass": "^3.3.6",
@@ -112,7 +102,6 @@
     "tslint": "^3.15.1",
     "tslint-loader": "^2.1.5",
     "typedoc": "^0.4.4",
-    "typescript": "^2.0.2",
     "url-loader": "^0.5.6",
     "watchify": "^3.9.0",
     "web-animations-js": "^2.2.2",
