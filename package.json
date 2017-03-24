@@ -34,7 +34,6 @@
     "prepublish": "npm run dist"
   },
   "dependencies": {
-    "awesome-typescript-loader": "^3.1.2"
   },
   "peerDependencies": {
     "@angular/core": "^4.0.0",
@@ -59,7 +58,7 @@
     "@types/d3-scale": "0.0.3",
     "@types/jasmine": "^2.2.33",
     "@types/requirejs": "^2.1.26",
-    "awesome-typescript-loader": "^3.0.4-rc.0",
+    "awesome-typescript-loader": "^3.1.2",
     "bootstrap-loader": "2.0.0-beta.16",
     "bootstrap-sass": "^3.3.6",
     "browserify": "^14.1.0",
