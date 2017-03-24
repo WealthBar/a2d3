@@ -6,6 +6,7 @@ export interface ID3Element {
 }
 
 export interface D3Scale {
+  redraw(): void;
   name: string
   scale
 }
@@ -17,16 +18,14 @@ export interface D3Scale {
  */
 @Directive({
   selector: '[d3-chart]',
-  inputs: ['data', 'debounce'],
+  inputs: ['data'],
 })
 export class D3Chart implements OnInit {
   element: any;
   chart: any;
-  debounce = 200;
   scales: D3Scale[] = []
   elements: ID3Element[] = []
 
-  private _timeout;
   private _data: {}[];
 
   constructor(elementRef: ElementRef) {
@@ -53,20 +52,17 @@ export class D3Chart implements OnInit {
   get data() { return this._data || [] }
   set data(value: any) {
     this._data = value
-    if (this._timeout || this.width === 0 || this.height === 0) return;
     this.redraw()
   }
 
   redraw() {
-    this._timeout = setTimeout(() => {
+    window.requestAnimationFrame(() => {
+      this.scales.forEach((e) => { e.redraw() })
       this.elements.forEach((e) => { e.redraw() })
-      this._timeout = null
-    }, this.debounce)
+    })
   }
 
-  ngOnInit() {
-    this.redraw()
-  }
+  ngOnInit() { this.redraw() }
 }
 
 export interface Margin {
