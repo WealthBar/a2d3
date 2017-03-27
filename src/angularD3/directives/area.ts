@@ -1,146 +1,154 @@
-import {Optional, Directive, ElementRef} from '@angular/core'
-import {D3Chart, D3Element, D3Scale, D3Margin} from './chart'
-import * as d3 from 'd3'
+import { Input, Optional, Directive, ElementRef } from '@angular/core';
+import { D3ChartDirective, D3Element, D3Scale, D3MarginDirective } from './chart';
+import * as d3 from 'd3';
 
 @Directive({
-  selector: '[d3-area]',
-  inputs: [
-    'xDataName: x', 'yDataName: y', 'name', 'yScaleName: yscale',
-    'xScaleName: xscale', 'stroke', 'columns', 'vertical',
-    'offset'
-  ],
+  selector: '[d3-area]'
 })
-export class D3Area extends D3Element {
-  name: string
-  vertical: boolean
-  xDataName: string
-  yDataName: string
-  yScaleName: string
-  xScaleName: string
-  offset: any
+export class D3AreaDirective extends D3Element {
+  @Input() name: string;
+  @Input() vertical: boolean;
+  @Input('x') xDataName: string;
+  @Input('y') yDataName: string;
+  @Input('yscale') yScaleName: string;
+  @Input('xscale') xScaleName: string;
+  @Input() offset: any;
+  @Input() stroke;
 
-  private _areaElement
-  private _columns
-  private _xScale: D3Scale
-  private _yScale: D3Scale
+  private _areaElement;
+  private _columns;
+  private _xScale: D3Scale;
+  private _yScale: D3Scale;
 
-  constructor(chart: D3Chart, el: ElementRef, @Optional() margin?: D3Margin) {
-    super(chart, el, margin)
-    this._areaElement = this.element.attr("class", "area")
+  constructor(chart: D3ChartDirective, el: ElementRef, @Optional() margin?: D3MarginDirective) {
+    super(chart, el, margin);
+    this._areaElement = this.element.attr('class', 'area');
   }
 
+  @Input()
   get columns() {
     if (this._columns) {
-      return this._columns
+      return this._columns;
     } else {
-      return [this.yDataName]
+      return [this.yDataName];
     }
   }
   set columns(value) {
     if (value instanceof String) {
-      value = value.split(',').map((v) => { v.trim() })
+      value = value.split(',').map(v => v.trim());
     }
+
     if (Array.isArray(value)) {
-      this._columns = value
-      this.redraw()
+      this._columns = value;
+      this.redraw();
     }
   }
 
   redraw() {
-    var data = this.data
-    var stack = d3.layout.stack()
-    if (this.offset) stack.offset(this.offset)
-    stack.values((d: any) => { return d.values })
+    const data = this.data;
+    const stack = d3.layout.stack();
 
-    var stackedData = stack(this.mapColumns(data))
+    if (this.offset) {
+      stack.offset(this.offset);
+    }
 
-    var area = this.getArea()
-    var nullArea = this.getNullArea()
-    var elements = this._areaElement.selectAll('path.area').data(stackedData)
+    stack.values((d: any) => d.values);
+
+    const stackedData = stack(this.mapColumns(data));
+
+    const area = this.getArea();
+    const nullArea = this.getNullArea();
+    const elements = this._areaElement.selectAll('path.area').data(stackedData);
     elements.enter()
-      .append('path').attr('class', (d) => { return `area area-${d.name}` })
-      .attr("d", nullArea)
+      .append('path').attr('class', d => `area area-${d.name}`)
+      .attr('d', nullArea);
+
     elements.transition().duration(500)
-      .attr('class', (d) => { return `area area-${d.name}` })
-      .attr("d", area)
+      .attr('class', d => `area area-${d.name}`)
+      .attr('d', area);
+
     elements.exit()
       .transition().duration(500)
-      .attr("d", nullArea)
-      .remove()
+      .attr('d', nullArea)
+      .remove();
   }
 
   private getNullArea() {
-    var area = d3.svg.area<any>()
-      .x((d, i) => { return this.x(d.x) })
-      .y0(() => { return this.height })
-      .y1(() => { return this.height })
-    var areaStacked = d3.svg.area<any>()
-      .x((d) => { return this.x(d.x) })
-      .y0((d) => { return this.y(d.y0) })
-      .y1((d) => { return this.y(d.y0) })
+    const area = d3.svg.area<any>()
+      .x((d, i) => this.x(d.x))
+      .y0(() => this.height)
+      .y1(() => this.height);
+
+    const areaStacked = d3.svg.area<any>()
+      .x(d => this.x(d.x))
+      .y0(d => this.y(d.y0))
+      .y1(d => this.y(d.y0));
+
     return (d, i) => {
       if (i === 0) {
-        return area(d.values)
+        return area(d.values);
       } else {
-        return areaStacked(d.values)
+        return areaStacked(d.values);
       }
-    }
+    };
   }
 
   private getArea() {
+    let area;
+    let areaStacked;
+
     if (this.vertical) {
-      var area = d3.svg.area<any>()
-        .y((d) => { return this.x(d.x) })
+      area = d3.svg.area<any>()
+        .y(d => this.x(d.x))
         .x0(0)
-        .x1((d) => { return this.y(d.y) })
-      var areaStacked = d3.svg.area<any>()
-        .y((d) => { return this.x(d.x) })
-        .x0((d) => { return this.y(d.y0) })
-        .x1((d) => { return this.y(d.y + d.y0) })
+        .x1(d => this.y(d.y));
+
+      areaStacked = d3.svg.area<any>()
+        .y(d => this.x(d.x))
+        .x0(d => this.y(d.y0))
+        .x1(d => this.y(d.y + d.y0));
     } else {
-      var area = d3.svg.area<any>()
-        .x((d) => { return this.x(d.x) })
-        .y0(() => { return this.height })
-        .y1((d) => { return this.y(d.y) })
-      var areaStacked = d3.svg.area<any>()
-        .x((d) => { return this.x(d.x) })
-        .y0((d) => { return this.y(d.y0) })
-        .y1((d) => { return this.y(d.y + d.y0) })
+      area = d3.svg.area<any>()
+        .x(d => this.x(d.x))
+        .y0(() => this.height)
+        .y1(d => this.y(d.y));
+
+      areaStacked = d3.svg.area<any>()
+        .x(d => this.x(d.x))
+        .y0(d => this.y(d.y0))
+        .y1(d => this.y(d.y + d.y0));
     }
+
     return (d, i) => {
       if (i === 0) {
-        return area(d.values)
+        return area(d.values);
       } else {
-        return areaStacked(d.values)
+        return areaStacked(d.values);
       }
-    }
+    };
   }
 
   private mapColumns(data) {
-    return this.columns.map((c) => {
-      return {
-        name: c,
-        values: this.mapValues(data, c)
-      }
-    })
+    return this.columns.map(c => ({
+      name: c,
+      values: this.mapValues(data, c)
+    }));
   }
 
   private mapValues(data, c) {
-    return data.map((d) => {
-      return {
-        x: d[this.xDataName],
-        y: d[c]
-      }
-    })
+    return data.map(d => ({
+      x: d[this.xDataName],
+      y: d[c]
+    }));
   }
 
   private get x() {
     return (this._xScale = this._xScale
-      || this.getScale(this.xScaleName || this.xDataName)).scale
+      || this.getScale(this.xScaleName || this.xDataName)).scale;
   }
 
   private get y() {
     return (this._yScale = this._yScale
-      || this.getScale(this.yScaleName || this.yDataName)).scale
+      || this.getScale(this.yScaleName || this.yDataName)).scale;
   }
 }

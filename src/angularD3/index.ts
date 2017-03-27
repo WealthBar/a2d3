@@ -1,43 +1,48 @@
-import {NgModule} from "@angular/core";
-import {D3Arc} from "./directives/arc";
-import {D3Area} from "./directives/area";
-import {D3Bars} from "./directives/bars";
-import {D3Chart, D3Margin} from "./directives/chart";
-import {D3Data} from "./directives/data";
-import {D3Line} from "./directives/line";
-import {D3Pie} from "./directives/pie";
-import {D3Gear} from "./directives/gear";
-import {D3Axis} from "./directives/axis";
+import { NgModule } from '@angular/core';
+import { D3ArcDirective } from './directives/arc';
+import { D3AreaDirective } from './directives/area';
+import { D3BarsDirective } from './directives/bars';
+import { D3ChartDirective, D3MarginDirective, D3Margin } from './directives/chart';
+import { D3DataDirective } from './directives/data';
+import { D3LineDirective } from './directives/line';
+import { D3PieDirective } from './directives/pie';
+import { D3GearDirective } from './directives/gear';
+import { D3AxisDirective } from './directives/axis';
 
 export const D3_DIRECTIVES = [
-  D3Arc,
-  D3Area,
-  D3Axis,
-  D3Bars,
-  D3Chart,
-  D3Data,
-  D3Line,
-  D3Margin,
-  D3Pie,
-  D3Gear,
+  D3ArcDirective,
+  D3AreaDirective,
+  D3AxisDirective,
+  D3BarsDirective,
+  D3ChartDirective,
+  D3DataDirective,
+  D3LineDirective,
+  D3MarginDirective,
+  D3PieDirective,
+  D3GearDirective,
 ];
 
 export {
-  D3Arc,
-  D3Area,
-  D3Axis,
-  D3Bars,
-  D3Chart,
-  D3Data,
-  D3Line,
+  D3ArcDirective,
+  D3AreaDirective,
+  D3AxisDirective,
+  D3BarsDirective,
+  D3ChartDirective,
+  D3DataDirective,
+  D3LineDirective,
   D3Margin,
-  D3Pie,
-  D3Gear,
+  D3MarginDirective,
+  D3PieDirective,
+  D3GearDirective,
 };
 
 @NgModule({
-  declarations: D3_DIRECTIVES,
-  exports: D3_DIRECTIVES,
+  declarations: [
+    ...D3_DIRECTIVES
+  ],
+  exports: [
+    ...D3_DIRECTIVES
+  ]
 })
 export class D3Module {
 }
