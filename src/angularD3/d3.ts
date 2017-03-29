@@ -1,7 +1,7 @@
-import { selection } from "d3-selection";
-import { scales } from "d3-scale";
-let format = require("d3-format");
-let interpolate = require("d3-interpolate");
+import { selection } from 'd3-selection';
+import { scales } from 'd3-scale';
+const format = require('d3-format');
+const interpolate = require('d3-interpolate');
 
 export default {
   arc: shape.arc,
