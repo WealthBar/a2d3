@@ -27,7 +27,6 @@ export class D3AxisLabelDirective extends D3Element {
       this._textElement = this.element.append('text').attr('class', 'axis-label');
       this._textElement.text(this.label);
     }
-    debugger;
     if (!this._scale) {
       this._scale = this.getScale(this.axis);
     }
