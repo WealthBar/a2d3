@@ -9,9 +9,13 @@ export class D3AxisLabelDirective extends D3Element {
   @Input() value: string;
   @Input() axis: string;
   @Input() position: string = 'left';
+  @Input('x-padding') xPadding: string = '0';
+  @Input('y-padding') yPadding: string = '0';
 
   private _scale: any;
   private _textElement;
+  private _xPadding: number;
+  private _yPadding: number;
 
   constructor(chart: D3ChartDirective, el: ElementRef, @Optional() margin?: D3MarginDirective) {
     super(chart, el, margin);
@@ -30,43 +34,47 @@ export class D3AxisLabelDirective extends D3Element {
     if (!this._scale) {
       this._scale = this.getScale(this.axis);
     }
-
+    if (!this._xPadding) {
+      this._xPadding = parseFloat(this.xPadding);
+    }
+    if (!this._yPadding) {
+      this._yPadding = parseFloat(this.yPadding);
+    }
     let isVertical = this._scale.isVertical();
 
-    let x;
-    let y;
+    let x = this._xPadding;
+    let y = this._yPadding;
     let scaledValue = this._scale.scale(this.value);
 
     if (isVertical) {
       this._textElement
           .attr('transform', 'rotate(-90)');
       if (this.position === 'middle') {
-        x = -this.height / 2 + 5;
-        y = scaledValue - 5;
+        x += -this.height / 2;
+        y += scaledValue;
       } else if (this._scale.orientation === 'top' && this.position === 'start'
           || this._scale.orientation === 'bottom' && this.position === 'end') {
         this._textElement
             .attr('style', 'text-anchor: end');
-        x = 5;
-        y = scaledValue - 5;
+        y += scaledValue;
       } else {
-        x = -this.height + 5;
-        y = scaledValue - 5;
+        x += -this.height;
+        y += scaledValue;
       }
     } else {
       if (this.position === 'middle') {
-        x = this.width / 2 - 5;
-        y = scaledValue - 5;
+        x += this.width / 2;
+        y += scaledValue;
       } else if (this._scale.orientation === 'left' && this.position === 'start'
           || this._scale.orientation === 'right' && this.position === 'end') {
-        x = 5;
-        y = scaledValue - 5;
+        y += scaledValue;
       } else {
-        x = this.width - 5;
-        y = scaledValue - 5;
+        x += this.width;
+        y += scaledValue;
         this._textElement.attr('style', 'text-anchor: end');
       }
     }
+
     this._textElement
       .attr('x', x)
       .attr('y', y);
