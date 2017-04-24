@@ -104,6 +104,10 @@ export class D3AxisDirective extends D3Element implements D3Scale {
     }
   }
 
+  public isVertical(): boolean {
+    return this.orientation === 'top' || this.orientation === 'bottom';
+  }
+
   private get range(): [number, number] {
     let range;
 
