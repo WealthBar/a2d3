@@ -8,6 +8,7 @@ import { D3LineDirective } from './directives/line';
 import { D3PieDirective } from './directives/pie';
 import { D3GearDirective } from './directives/gear';
 import { D3AxisDirective } from './directives/axis';
+import { D3AxisLabelDirective } from './directives/axis-label';
 
 export const D3_DIRECTIVES = [
   D3ArcDirective,
@@ -20,6 +21,7 @@ export const D3_DIRECTIVES = [
   D3MarginDirective,
   D3PieDirective,
   D3GearDirective,
+  D3AxisLabelDirective,
 ];
 
 export {
@@ -34,6 +36,7 @@ export {
   D3MarginDirective,
   D3PieDirective,
   D3GearDirective,
+  D3AxisLabelDirective,
 };
 
 @NgModule({

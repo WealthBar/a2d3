@@ -3,6 +3,21 @@
   <d3-data [src]="pieDataUrl" (data)="pie = $event.rows" [accessor]="parseValues" [callback]="log"></d3-data>
   <d3-data [src]="gearDataUrl" (data)="gear = $event.rows" [accessor]="parseValues" [callback]="log"></d3-data>
 
+  <section id="graphs-with-labels" class="well">
+    <h1>Graph with axis labels</h1>
+    <p>Basic line, area and bar charts can be composed together in the same chart.</p>
+    <div class="d3-chart">
+      <svg d3-chart [data]="line">
+        <g [d3-margin]="{ top: 40, right: 60, bottom: 40, left: 60}">
+          <g d3-area x="date" y="total"></g>
+          <g d3-axis name="date" label="Date" [extent]="true" orientation="bottom" [ticks]="5" time-format="%Y-%m-%d"></g>
+          <g d3-axis name="total" label="Savings" orientation="left" grid="true" tick-anchor="end" order="1"></g>
+          <g d3-axis-label axis="total" value="600" label="six hundred" position="end" x-padding="-5" y-padding="-5"></g>
+        </g>
+      </svg>
+    </div>
+  </section>
+
   <section id="graphs" class="well">
     <h1>Basic Graphs</h1>
     <p>Basic line, area and bar charts can be composed together in the same chart.</p>
