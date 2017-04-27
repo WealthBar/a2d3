@@ -5,7 +5,6 @@ import { D3ChartDirective, D3Element, D3MarginDirective } from './chart';
   selector: '[d3-axis-label]'
 })
 export class D3AxisLabelDirective extends D3Element {
-  @Input() label: string;
   @Input() value: string;
   @Input() axis: string;
   @Input() position: string = 'left';
@@ -16,6 +15,7 @@ export class D3AxisLabelDirective extends D3Element {
   private _textElement;
   private _xPadding: number;
   private _yPadding: number;
+  private _label: string;
 
   constructor(chart: D3ChartDirective, el: ElementRef, @Optional() margin?: D3MarginDirective) {
     super(chart, el, margin);
@@ -24,6 +24,18 @@ export class D3AxisLabelDirective extends D3Element {
 
   redraw() {
     this.updateLabel();
+  }
+
+  @Input()
+  get label(): string {
+    return this._label;
+  }
+
+  set label(value: string) {
+    this._label = value;
+    if (this._textElement) {
+      this._textElement.text(this._label);
+    }
   }
 
   private updateLabel() {
